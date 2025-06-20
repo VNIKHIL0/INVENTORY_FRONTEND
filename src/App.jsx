@@ -13,7 +13,7 @@ function App() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/products', {
+      const res = await axios.get('https://inventory-backend-sflr.onrender.com/api/products', {
         headers: { Authorization: token },
       });
       setProducts(res.data);
@@ -26,12 +26,12 @@ function App() {
   const handleSubmit = async () => {
     try {
       if (editingId) {
-        await axios.put(`http://localhost:5000/api/products/${editingId}`, newProduct, {
+        await axios.put(`https://inventory-backend-sflr.onrender.com/api/products/${editingId}`, newProduct, {
           headers: { Authorization: token }
         });
         setEditingId(null);
       } else {
-        await axios.post('http://localhost:5000/api/products', newProduct, {
+        await axios.post('https://inventory-backend-sflr.onrender.com/api/products', newProduct, {
           headers: { Authorization: token }
         });
       }
@@ -43,7 +43,7 @@ function App() {
   };
 
   const deleteProduct = async (id) => {
-    await axios.delete(`http://localhost:5000/api/products/${id}`, {
+    await axios.delete(`https://inventory-backend-sflr.onrender.com/api/products/${id}`, {
       headers: { Authorization: token }
     });
     fetchProducts();
