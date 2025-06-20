@@ -13,7 +13,7 @@ const AuthForm = ({ onAuthSuccess }) => {
     };
 
     try {
-      const res = await axios.post(`http://localhost:5000${route}`, payload);
+      const res = await axios.post(`https://inventory-backend-sflr.onrender.com${route}`, payload);
       if (res.data.token) {
         localStorage.setItem('token', res.data.token);
         onAuthSuccess();
